@@ -1,30 +1,22 @@
-class Fib:
-    def __init__(self,n) -> None:
-        self.n=n
-        self.one=0
-        self.two=1
+class FileReader:
 
-    
-    def __iter__(self):
-        return self
-    
-    def __next__(self):
-        if self.n ==0:
-            raise StopIteration
-        self.n+=-1
-        a=self.one
-        nxt=self.one + self.two
-        self.one=self.two
-        self.two=nxt
-        return a
-
-fibo=Fib(5)
-
-print(next(fibo))#0
-print(next(fibo))#1
-print(next(fibo))#1
-print(next(fibo))#2
-print(next(fibo))#3
-print(next(fibo))
+    def __init__(self, filename, mode):
+        self.filename = filename
+        self.mode = mode
 
 
+    def __enter__(self):
+        self.file = open(self.filename, self.mode)
+        return self.file
+
+    def __exit__(self, exc_type, exc_value, exc_traceback):
+            # print(exc_type, "1111")
+            # print(exc_value, "2222")
+            # print(exc_traceback, "3333")
+            self.file.close()
+
+
+with FileReader('test.txt', 'w') as f:
+    f.write('Test')
+
+print(f.closed)
