@@ -7,12 +7,12 @@ def get_positive_numbers(nums:List[int]) -> Iterator[int]:
 
 def calculate_average(nums: List[int], ignore_zero: Optional[bool] = False) -> float:
     if ignore_zero:
-        nums = filter(lambda num: num != 0, nums)
+        nums = list(filter(lambda num: num != 0, nums))
     result = sum(nums)/len(nums)
     return result
 
 
-def perform_operation(num1: int, num2: int, operation:Callable[[int, int], int]) -> Any:
+def perform_operation(num1: int, num2: int, operation:Callable[[int, int], int]) -> int:
     return operation(num1, num2)
 
 
