@@ -6,7 +6,6 @@ def glo():
     return counter
 
 print(glo())
-
 def outer():
     var=0
     def inner():
