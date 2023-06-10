@@ -12,7 +12,7 @@ def calculate_average(nums: List[int], ignore_zero: Optional[bool] = False) -> f
     return result
 
 
-def perform_operation(num1: int, num2: int, operation:Callable[[int, int], int]) -> int:
+def perform_operation(num1: int, num2: int, operation: Callable[[int, int], int]) -> int:
     return operation(num1, num2)
 
 
